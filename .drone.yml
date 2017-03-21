@@ -2,6 +2,7 @@ pipeline:
   build:
     image: ubuntu:latest
     commands:
+      - uname -a
       - apt-get update
       - apt-get install google-chrome google-chrome-stable fluxbox firefox 
       - "export DISPLAY=:99.0"
