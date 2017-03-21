@@ -2,4 +2,4 @@ pipeline:
   build:
     image: testcafe/testcafe:alpha
     commands:
-      - node /opt/testcafe/bin/testcafe.js chromium --no-sandbox,firefox ./test.js
+      - node /opt/testcafe/bin/testcafe.js firefox ./test.js
