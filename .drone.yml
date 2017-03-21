@@ -2,7 +2,6 @@ pipeline:
   build:
     image: node:latest
     commands:
-      - stty cols 80
       - apt install google-chrome google-chrome-stable fluxbox firefox 
       - "export DISPLAY=:99.0"
       - "sh -e /etc/init.d/xvfb start"
