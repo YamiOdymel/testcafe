@@ -10,6 +10,4 @@ pipeline:
       - chmod +x ./testcafe-docker.sh
       - adduser -D user
       - ls
-      - ls ./node_modules
-      - ls ./node_modules/testcafe
       - ./testcafe-docker.sh
