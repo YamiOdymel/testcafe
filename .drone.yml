@@ -1,15 +1,12 @@
 pipeline:  
-  chrome:
-    image: ubuntu:latest
+  firefox:
+    image: alpine:latest
     commands:
-      - apt-get update
-      - apt-get install -y wget nodejs nodejs-legacy npm
-      - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-      - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
-      - apt-get update
-      - apt-get install -y google-chrome-stable
-      - rm -rf /var/lib/apt/lists/*
+      - apk --no-cache add nodejs chromium firefox-esr xvfb dbus eudev ttf-freefont fluxbox
       - npm install --production
       - npm install testcafe -g
+      - npm cache clean
+      - rm -rf /tmp/*
       - chmod +x ./testcafe-docker.sh
+      - adduser -D user
       - ./testcafe-docker.sh
