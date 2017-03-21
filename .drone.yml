@@ -7,6 +7,6 @@ pipeline:
       - npm install testcafe -g
       - npm cache clean
       - rm -rf /tmp/*
-      - chmod +x ./testcafe-docker.sh
+      - chmod +x ./script.sh
       - adduser -D user
-      - ./testcafe-docker.sh
+      - ./script.sh
