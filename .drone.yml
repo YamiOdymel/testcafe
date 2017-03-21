@@ -3,7 +3,11 @@ pipeline:
     image: ubuntu:latest
     commands:
       - apt-get update
-      - apt-get install -y npm nodejs nodejs-legacy chromium-browser firefox xvfb dbus ttf-freefont fluxbox
+      - apt-get install -y npm nodejs nodejs-legacy chromium-browser firefox xvfb dbus ttf-freefont fluxbox wget
+      - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
+      - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
+      - apt-get install -y google-chrome-stable
+      - rm -rf /var/lib/apt/lists/*
       - npm install --production
       - npm install testcafe -g
       - npm cache clean
