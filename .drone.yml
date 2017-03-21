@@ -8,6 +8,12 @@ pipeline:
       - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
       - apt-get update 
       - apt-get install -y google-chrome-stable
+      - wget https://ftp.mozilla.org/pub/firefox/releases/52.0/linux-x86_64/en-US/firefox-52.0.tar.bz2
+      - tar -xjf firefox-52.0.tar.bz2
+      - rm -rf /opt/firefox51
+      - mv firefox /opt/firefox51
+      - mv /usr/bin/firefox /usr/bin/firefoxold
+      - ln -s /opt/firefox52/firefox /usr/bin/firefox
       - rm -rf /var/lib/apt/lists/*
       - npm install --production
       - npm install testcafe -g
