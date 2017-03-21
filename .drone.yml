@@ -14,6 +14,5 @@ pipeline:
       - npm cache clean
       - rm -rf /tmp/*
       - chmod +x ./testcafe-docker.sh
-      - adduser -D user
       - ls
       - ./testcafe-docker.sh
