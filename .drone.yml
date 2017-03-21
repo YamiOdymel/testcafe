@@ -1,15 +1,12 @@
 pipeline:  
   build:
-    image: ubuntu:latest
+    image: alpine:latest
     commands:
-      - uname -a
-      - apt-get update
-      - apt-get install -y wget
-      - wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-      - echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list
-      - apt-get update
-      - apt-get install -y google-chrome-stable fluxbox firefox 
-      - "export DISPLAY=:99.0"
-      - "sh -e /etc/init.d/xvfb start"
-      - sleep 3
-      - fluxbox >/dev/null 2>&1 &
+      - apk --no-cache add nodejs chromium firefox-esr xvfb dbus eudev ttf-freefont fluxbox
+      - npm install --production
+      - npm cache clean
+      - rm -rf /tmp/*
+      - chmod +x ./testcafe-docker.sh
+      - adduser -D user
+      - ls
+      - ./testcafe-docker.sh
