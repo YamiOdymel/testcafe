@@ -8,3 +8,6 @@ export DISPLAY=:1.0
 fluxbox >/dev/null 2>&1 &
 #node ./node_modules/testcafe/bin/testcafe.js "$@"
 testcafe firefox test.js
+testcafe chrome test.js
+testcafe google-chrome-stable test.js
+testcafe chromium-browser test.js
