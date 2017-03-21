@@ -1,6 +1,6 @@
 pipeline:  
   build:
-    image: schmunk42/apt:latest
+    image: ubuntu:latest
     commands:
       - apt-get update
       - apt-get install -y npm nodejs chromium firefox-esr xvfb dbus ttf-freefont fluxbox
