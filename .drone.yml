@@ -4,6 +4,7 @@ pipeline:
     commands:
       - apk --no-cache add nodejs chromium firefox-esr xvfb dbus eudev ttf-freefont fluxbox
       - npm install --production
+      - npm install testcafe
       - npm cache clean
       - rm -rf /tmp/*
       - chmod +x ./testcafe-docker.sh
