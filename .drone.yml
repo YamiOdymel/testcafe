@@ -1,6 +1,12 @@
-
 pipeline:  
-  build:
-    image: testcafe/testcafe:alpha
+  firefox:
+    image: alpine:latest
     commands:
-      - node /opt/testcafe/bin/testcafe.js 'chromium --no-sandbox --headless --disable-gpu,firefox' ./test.js
+      - apk --no-cache add nodejs chromium firefox-esr xvfb dbus eudev ttf-freefont fluxbox
+      - npm install --production
+      - npm install testcafe -g
+      - npm cache clean
+      - rm -rf /tmp/*
+      - chmod +x ./testcafe-docker.sh
+      - adduser -D user
+      - ./testcafe-docker.sh
