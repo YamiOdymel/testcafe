@@ -1,6 +1,6 @@
 pipeline:  
   build:
-    image: node:latest
+    image: ubuntu:latest
     commands:
       - apt-get update
       - apt-get install google-chrome google-chrome-stable fluxbox firefox 
