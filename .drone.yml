@@ -1,12 +1,10 @@
 pipeline:  
   build:
-    image: golang:${GO_VERSION}
+    image: node:latest
     commands:
-      - go get
-      - go build
-      - go test
-
-matrix:  
-  GO_VERSION:
-    - 1.7
-    - 1.6
+      - stty cols 80
+      - apt install google-chrome google-chrome-stable fluxbox firefox 
+      - "export DISPLAY=:99.0"
+      - "sh -e /etc/init.d/xvfb start"
+      - sleep 3
+      - fluxbox >/dev/null 2>&1 &
