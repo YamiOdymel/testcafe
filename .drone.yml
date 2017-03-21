@@ -3,7 +3,7 @@ pipeline:
     image: ubuntu:latest
     commands:
       - apt-get update
-      - apt-get install -y npm nodejs chromium firefox-esr xvfb dbus ttf-freefont fluxbox
+      - apt-get install -y npm nodejs chromium-browser firefox xvfb dbus ttf-freefont fluxbox
       - npm install --production
       - npm install testcafe -g
       - npm cache clean
